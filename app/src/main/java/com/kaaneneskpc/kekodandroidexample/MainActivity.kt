@@ -16,14 +16,15 @@ class MainActivity : AppCompatActivity() {
         Log.i("MainActivity", "OnCreate")
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.button)
+        /* val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
             startActivity(Intent(this, SecondActivity::class.java))
         }
-
+        lifecycle.addObserver(CameraComponent())
+        lifecycle.addObserver(CameraComponent2()) // component artık lifecycle aware */
     }
 
-    override fun onStart() {
+    /* override fun onStart() {
         super.onStart()
         Log.i("MainActivity", "OnStart")
     }
@@ -46,9 +47,11 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.i("MainActivity", "OnDestroy")
+        lifecycle.removeObserver(CameraComponent())
+        lifecycle.removeObserver(CameraComponent2()) // component artık lifecycle aware değil.
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
+    /* override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
         /* val edtUserField = findViewById<EditText>(R.id.editTxt)
@@ -109,8 +112,8 @@ class MainActivity : AppCompatActivity() {
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         Log.i("MainActivity", "onDetachedFromWindow")
-    }
-
+    } */
+ */
 
 }
 

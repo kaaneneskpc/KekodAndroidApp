@@ -13,10 +13,10 @@
         android:theme="@style/Theme.KekodAndroidApp"
         tools:targetApi="31">
         <activity
-            android:name=".SecondActivity"
+            android:name=".navigation.screens.SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".navigation.screens.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

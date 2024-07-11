@@ -1,4 +1,4 @@
-package com.kaaneneskpc.kekodandroidexample
+package com.kaaneneskpc.kekodandroidexample.navigation.components.camera
 
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver

@@ -1,28 +1,22 @@
-package com.kaaneneskpc.kekodandroidexample
+package com.kaaneneskpc.kekodandroidexample.navigation.screens
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.kaaneneskpc.kekodandroidexample.R
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val imageView = findViewById<ImageView>(R.id.imageView)
+        /* val imageView = findViewById<ImageView>(R.id.imageView)
         imageView.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
-        }
+        } */
 
     }
 
-    override fun onStart() {
+    /* override fun onStart() {
         super.onStart()
         Log.i("MainActivity", "OnStart")
     }
@@ -107,5 +101,5 @@ class SecondActivity : AppCompatActivity() {
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         Log.i("MainActivity", "onDetachedFromWindow")
-    }
+    } */
 }

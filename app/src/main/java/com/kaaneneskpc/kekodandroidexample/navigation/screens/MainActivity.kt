@@ -17,10 +17,13 @@ class MainActivity : AppCompatActivity() {
 
         /* getNavControllerViaFragment()
          getNavControllerViaFragment2()
-         getNavControllerViaView()  //Run truely
+         getNavControllerViaView()
+          getNavControllerViaFragment3()//Run truely
 
          getNavControllerViaView2()  //Error -> does not have a NavController set (NavController'a erişim sorunu var demektir)
          // Burda fragment'ın kendisi yok view var onun da NavHostFragment'ı olmadığı için create anında cast ettirmemiz gerekir. */
+        // getNavControllerViaView3() Error -> does not have an NavController
+
     }
 
     private fun getNavControllerViaFragment() {
@@ -36,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         val navControllerView = navHostFragmentView.navController
     }
 
+    private fun getNavControllerViaFragment3() {
+        findNavController(R.id.navHostFragment)
+    }
+
     private fun getNavControllerViaView() {
         val navHostFragmentView = findViewById<View>(R.id.navHostFragment)
         val navControllerView = navHostFragmentView.findNavController()
@@ -48,6 +55,15 @@ class MainActivity : AppCompatActivity() {
         val navControllerView = navHostFragmentView.findNavController()
     }
 
+    private fun getNavControllerViaView3() {
+        findNavController(R.id.navHostFragmentContainer)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // getNavControllerViaView2()
+        // getNavControllerViaView3() onResume'da çağrılabilir ama onCreate'de çağırınca hata veriyor. Controller'a sahip olmadğı için
+    }
 
 }
 
@@ -59,3 +75,5 @@ class MainActivity : AppCompatActivity() {
 //    navHostFragment.navController
 //    navHostFragment.findNavController() -> Yukarıdaki ile aynı değil yukarıdaki NavHostFragment'ın
 //    variable'ı iken alttaki view'ın extension functionu
+
+//    navControllerSet ile alakalı hata onResume'da çalışması gerek  typecast hatası o tamamen yanlış işlemdir.

@@ -7,12 +7,13 @@
     tools:context=".navigation.screens.DashboardFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
+        android:id="@+id/dashboardButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Dashboard Fragment"
+        android:layout_height="wrap_content"
+        android:text="Open to Profile Screen"
+        android:layout_gravity="center"
         android:textColor="@color/black"
-        android:gravity="center"
         android:textSize="20sp"/>
 
 </FrameLayout>

@@ -14,7 +14,8 @@
         tools:targetApi="31">
         <activity
             android:name=".navigation.screens.SecondActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KekodAndroidApp"/>
         <activity
             android:name=".navigation.screens.MainActivity"
             android:exported="true">

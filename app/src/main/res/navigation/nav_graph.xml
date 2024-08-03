@@ -13,10 +13,38 @@
         <action
             android:id="@+id/action_dashboardFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_settingsDialogFragment"
+            app:destination="@id/settingsDialogFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_secondActivity"
+            app:destination="@id/secondActivity" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.kaaneneskpc.kekodandroidexample.navigation.screens.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <argument
+            android:name="userId"
+            app:argType="string"
+            android:defaultValue="Default Value"
+            app:nullable="false"/>
+
+        <deepLink
+            app:uri="https://www.example.com/profile/{userId}"/>
+
+
+    </fragment>
+    <dialog
+        android:id="@+id/settingsDialogFragment"
+        android:name="com.kaaneneskpc.kekodandroidexample.navigation.screens.SettingsDialogFragment"
+        android:label="fragment_settings_dialog"
+        tools:layout="@layout/fragment_settings_dialog" />
+    <activity
+        android:id="@+id/secondActivity"
+        android:name="com.kaaneneskpc.kekodandroidexample.navigation.screens.SecondActivity"
+        android:label="activity_second"
+        tools:layout="@layout/activity_second" />
 </navigation>

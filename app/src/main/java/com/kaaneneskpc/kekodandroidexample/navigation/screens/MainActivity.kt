@@ -6,7 +6,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.kaaneneskpc.kekodandroidexample.R
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +20,15 @@ class MainActivity : AppCompatActivity() {
           getNavControllerViaFragment3()//Run truely
 
          getNavControllerViaView2()  //Error -> does not have a NavController set (NavController'a erişim sorunu var demektir)
-         // Burda fragment'ın kendisi yok view var onun da NavHostFragment'ı olmadığı için create anında cast ettirmemiz gerekir. */
-        // getNavControllerViaView3() Error -> does not have an NavController
+         // Burda fragment'ın kendisi yok view var onun da NavHostFragment'ı olmadığı için create anında cast ettirmemiz gerekir.
+        // getNavControllerViaView3() Error -> does not have an NavController */
 
+        /* val pendingIntent = NavDeepLinkBuilder(this)
+            .setGraph(R.navigation.nav_graph)
+            .setDestination(R.id.profileFragment)
+            .setArguments(bundleOf())
+            .setComponentName(SecondActivity::class.java) // default activity yerine harici bir activity çağırmak istiyorsak
+            .createPendingIntent() // Deeplink Oluşturma pendingIntent ile birlikte.  */
     }
 
     private fun getNavControllerViaFragment() {

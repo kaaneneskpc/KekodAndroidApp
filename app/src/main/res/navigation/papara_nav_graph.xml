@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/papara_nav_graph"
+    app:startDestination="@id/dashboardPaparaFragment">
+
+    <fragment
+        android:id="@+id/dashboardPaparaFragment"
+        android:name="com.kaaneneskpc.paparasample.DashboardPaparaFragment"
+        android:label="fragment_dashboard_papara"
+        tools:layout="@layout/fragment_dashboard_papara" />
+    <dialog
+        android:id="@+id/qrDialogFragment"
+        android:name="com.kaaneneskpc.paparasample.QRDialogFragment"
+        android:label="fragment_q_r_dialog"
+        tools:layout="@layout/fragment_q_r_dialog" />
+    <dialog
+        android:id="@+id/moneyTransferDialogFragment"
+        android:name="com.kaaneneskpc.paparasample.MoneyTransferDialogFragment"
+        android:label="fragment_money_transfer_dialog"
+        tools:layout="@layout/fragment_money_transfer_dialog" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.kaaneneskpc.paparasample.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/paparaCardFragment"
+        android:name="com.kaaneneskpc.paparasample.PaparaCardFragment"
+        android:label="fragment_papara_card"
+        tools:layout="@layout/fragment_papara_card" />
+    <fragment
+        android:id="@+id/searchAtmFragment"
+        android:name="com.kaaneneskpc.paparasample.SearchAtmFragment"
+        android:label="fragment_search_atm"
+        tools:layout="@layout/fragment_search_atm" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.kaaneneskpc.paparasample.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+</navigation>

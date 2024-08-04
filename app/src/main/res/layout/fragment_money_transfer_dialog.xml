@@ -1,0 +1,14 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_blue_light"
+    tools:context="com.kaaneneskpc.paparasample.MoneyTransferDialogFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="700dp"
+        android:layout_height="500dp"
+        android:text="@string/hello_blank_fragment" />
+
+</FrameLayout>

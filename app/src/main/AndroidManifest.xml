@@ -13,18 +13,25 @@
         android:theme="@style/Theme.KekodAndroidApp"
         tools:targetApi="31">
         <activity
+            android:name="com.kaaneneskpc.paparasample.PaparaMainActivity"
+            android:exported="true">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+
+        </activity>
+
+        <activity
             android:name=".navigation.screens.SecondActivity"
             android:exported="false"
-            android:theme="@style/Theme.KekodAndroidApp"/>
+            android:theme="@style/Theme.KekodAndroidApp" />
         <activity
             android:name=".navigation.screens.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
     </application>
 
 </manifest>

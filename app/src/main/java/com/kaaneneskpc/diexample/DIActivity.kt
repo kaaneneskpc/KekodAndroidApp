@@ -1,0 +1,46 @@
+package com.kaaneneskpc.diexample
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.kaaneneskpc.kekodandroidexample.R
+
+class DIActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_diactivity)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+}
+
+/* Classların birbirine bağımlılığı en az olması lazım ki yapılan bir değişiklik mesela netmera yerine dataroid
+kullanılmak istendiğinde tek tek gidip her classın içinden değişiklikleri yapmamak lazım.
+Class'a nesneler kendi içerisinde oluşturuluyorsa  bunu tightly coupling olarak adlandırılır.
+Tam tersine de loosely coupling olarak adlandırılır.
+
+cohesion ise sınıfın ya da modulun ne kadar iyi tanımlandığını belirtir.
+
+Yüksek cohesion bir sınıfın modülün ya da fonksiyonun tek bir sorumluluğu olması ve bu sorumluluğu en iyi şekilde
+yerine getirmesi anlamına gelir.
+
+tight coupling -> low cohesiona sebebiyet verir kodun okunabilirliği ve bakımı zorlaşır.
+loosley coupling ve high cohesiona sebebiyet verir kodun okunabilirliği ve bakımı kolaylaşır.
+
+Dependency Inversion -> High level modüller low level modüllere bağlı olmamalıdır. Her ikisi de abstractionlara bağlı olmalıdır.
+Inversion Of Control -> High level modüller low level modüllerin nasıl çalıştığını kontrol etmemelidir. Bu işlemi başka bir modül yapmalıdır.
+(Dataroid ve Netmera örneğinde olduğu gibi yapacağı işlemler kendi tarafından yönetilmemeli)
+
+En kısa DI tanımı classin içindeki tüm bağımlılıkları constructorunu al olmuyorsa field olarak inject et.
+Ne kadar az bağımlı olursa kopyaları oluşturulması ve test edilmesi daha kolay olur.
+
+
+
+*/
+

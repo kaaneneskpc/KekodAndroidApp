@@ -42,5 +42,20 @@ Ne kadar az bağımlı olursa kopyaları oluşturulması ve test edilmesi daha k
 
 
 
+Çok çok özetle ->
+
+Manual yaparsak bir tane container lazım tüm dependencyleri oraya tightly olarak coupled edilir. İstenilen şey bu
+DI(Hilt ve koin) arka planda bunu yapıyor zaten. Sonra ilgili yerlere loosely coupled olarak inject edilir.
+
+Koin bu service locator patterni kullanır.
+Hilt bunu compile time(build sırasında generate edilen kodlar) da yapar. (Daha performanslıdır)(Injection Pattern)
+
+Koin runtime -> runtimeda yaptığı performans sıkıntı ama build time kısaltıyor.
+Hilt build time -> süreyi artırdığı için bi tık sıkıntı ama runtime da exception fırlatmıyor.(Bir kere derlendiğinde her şeyi okdir)
+
+
+
+
+
 */
 

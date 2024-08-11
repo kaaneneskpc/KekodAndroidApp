@@ -2,7 +2,7 @@ package com.kaaneneskpc.kekodandroidexample.navigation.screens
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.kaaneneskpc.kekodandroidexample.R
+import com.kaaneneskpc.R
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

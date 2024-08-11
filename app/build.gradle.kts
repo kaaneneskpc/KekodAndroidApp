@@ -1,14 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.kaaneneskpc.kekodandroidexample"
+    namespace = "com.kaaneneskpc"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.kaaneneskpc.kekodandroidexample"
+        applicationId = "com.kaaneneskpc"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -48,4 +51,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    //Navigation
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
+
+    //Hilt
+    implementation(libs.hilt)
+    ksp(libs.hilt.kapt)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.viewmodel.compose)
+
+    //Firebase
+    implementation(platform(libs.firebase.bom))
+
 }

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
-import com.kaaneneskpc.kekodandroidexample.R
+import com.kaaneneskpc.R
 
 
 class DashboardFragment : Fragment() {

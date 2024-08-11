@@ -5,11 +5,24 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.kaaneneskpc.kekodandroidexample.R
+import com.kaaneneskpc.R
+import com.kaaneneskpc.diexample.analytics.AnalyticsAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DIActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var analyticsAdapter: AnalyticsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        defaultCodes()
+        analyticsAdapter.analyticsService.analyticsMethod()
+    }
+
+    private fun defaultCodes() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_diactivity)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -19,6 +32,8 @@ class DIActivity : AppCompatActivity() {
         }
     }
 }
+
+
 
 /* Classların birbirine bağımlılığı en az olması lazım ki yapılan bir değişiklik mesela netmera yerine dataroid
 kullanılmak istendiğinde tek tek gidip her classın içinden değişiklikleri yapmamak lazım.

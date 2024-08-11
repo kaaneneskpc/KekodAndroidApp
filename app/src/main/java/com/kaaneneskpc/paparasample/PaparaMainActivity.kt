@@ -16,7 +16,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
-import com.kaaneneskpc.kekodandroidexample.R
+import com.kaaneneskpc.R
 
 // id tanımlamaları yaparken xml'de +id yapmamızın sebebi R.id.xxx bulamaz ise R içinde kendisi otomatik oluştursun diye.
 

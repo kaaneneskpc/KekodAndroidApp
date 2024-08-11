@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.kaaneneskpc.kekodandroidexample.R
+import com.kaaneneskpc.R
 
 
 class DashboardPaparaFragment : Fragment() {

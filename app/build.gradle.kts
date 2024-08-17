@@ -63,6 +63,9 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     implementation(libs.viewmodel.compose)
 
+    //Retrofit
+    implementation(libs.retrofit)
+
     //Firebase
     implementation(platform(libs.firebase.bom))
 

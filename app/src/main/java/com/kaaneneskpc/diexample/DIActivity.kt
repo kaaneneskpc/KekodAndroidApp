@@ -7,7 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.kaaneneskpc.R
 import com.kaaneneskpc.diexample.analytics.AnalyticsAdapter
+import com.kaaneneskpc.diexample.analytics.di.AuthInterceptorRetrofit
 import dagger.hilt.android.AndroidEntryPoint
+import retrofit2.Retrofit
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -15,6 +17,10 @@ class DIActivity : AppCompatActivity() {
 
     @Inject
     lateinit var analyticsAdapter: AnalyticsAdapter
+
+    @AuthInterceptorRetrofit
+    @Inject
+    lateinit var retrofit: Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

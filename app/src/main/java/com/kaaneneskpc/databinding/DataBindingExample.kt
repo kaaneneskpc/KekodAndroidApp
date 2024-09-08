@@ -1,6 +1,8 @@
 package com.kaaneneskpc.databinding
 
+import android.content.Context
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 class DataBindingExample : AppCompatActivity() {
@@ -12,11 +14,19 @@ class DataBindingExample : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityDataBindingExampleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val presenter = Presenter()
         binding.message = "Hello DataBinding"
 
     }
 }
+
+class Presenter {
+    fun onSaveClick(view: View, context: Context) {
+        // Save the user's data
+    }
+}
+
+
 
 //DataBinding & ViewBinding
 
@@ -25,7 +35,7 @@ class DataBindingExample : AppCompatActivity() {
     2)FindviewByIdye farklı layouttaki bir idyi gelip farklı activityde verebilirz çalışır ancak ilgili sayfaya geldiğinde crash alırsın ve bu da zaman kaybına sebebiyet verir.
     (Compile time ya da build time safety yoktur.) - Null safety sağlamıyor.(Bir componente eriştiğinizde null olmayacağını garanti edemezsiniz)
      verilen component tipi farklı olabilir bunda da aynı şekilde build time safety yok.
-    Kısa haliyle -> null safety değil, type safety değil, initializedan önce erişim sağlanabilir bu da hataya sebebiyet verir
+    Kısa haliyle -> null safety değil, type safety değil, hiyerarşide 2 saat view araması, initializedan önce erişim sağlanabilir bu da hataya sebebiyet verir
     deep search ile yaptığı için performans sorununa sebebiyet veriyor.
 
 
@@ -38,5 +48,4 @@ class DataBindingExample : AppCompatActivity() {
 
 
 
-
- */
+*/

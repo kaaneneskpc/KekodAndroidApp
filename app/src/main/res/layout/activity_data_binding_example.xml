@@ -7,6 +7,10 @@
         <variable
             name="message"
             type="String" />
+
+        <variable
+            name="presenter"
+            type="com.kaaneneskpc.databinding.Presenter" />
     </data>
 
     <LinearLayout
@@ -29,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:onClick="@{(view) -> presenter.onSaveClick(view, view.getContext())}"
             android:text="@{message}"/>
 
 

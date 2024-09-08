@@ -14,7 +14,7 @@
         android:theme="@style/Theme.KekodAndroidApp"
         tools:targetApi="31">
         <activity
-            android:name="com.kaaneneskpc.diexample.DIActivity"
+            android:name=".databinding.DataBindingExample"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +23,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.kaaneneskpc.paparasample.PaparaMainActivity"
-            android:exported="true">
-
+            android:name=".mvvmexample.MVVMMainActivity"
+            android:exported="false">
         </activity>
+        <activity
+            android:name=".diexample.DIActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".paparasample.PaparaMainActivity"
+            android:exported="true" />
         <activity
             android:name=".navigation.screens.SecondActivity"
             android:exported="false"

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.KekodAndroidApp"
         tools:targetApi="31">
         <activity
-            android:name=".databinding.DataBindingExample"
+            android:name=".recyclerviewexample.RecyclerViewExampleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +23,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mvvmexample.MVVMMainActivity"
+            android:name=".databinding.DataBindingExample"
             android:exported="false">
+
         </activity>
         <activity
+            android:name=".mvvmexample.MVVMMainActivity"
+            android:exported="false"></activity>
+        <activity
             android:name=".diexample.DIActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".paparasample.PaparaMainActivity"
             android:exported="true" />

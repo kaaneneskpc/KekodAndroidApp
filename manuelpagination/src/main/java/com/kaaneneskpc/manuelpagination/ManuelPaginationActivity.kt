@@ -1,6 +1,7 @@
 package com.kaaneneskpc.manuelpagination
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,14 +22,24 @@ class ManuelPaginationActivity : AppCompatActivity() {
             insets
         }
         val productList = getProductList()
+        val productListAdapter = ProductListAdapter(productList)
         binding.apply {
-            rvProducts.adapter = ProductListAdapter(productList)
+            rvProducts.adapter = productListAdapter
+            Handler(mainLooper).postDelayed({
+                productListAdapter.showLoading()
+            }, 5000)
+
+            Handler(mainLooper).postDelayed({
+                productListAdapter.hideLoading()
+            }, 7000)
+
+
         }
     }
 
-    private fun getProductList(): List<String> {
+    private fun getProductList(): MutableList<String> {
         val productList = mutableListOf<String>()
-        repeat(100) {
+        repeat(20) {
             productList.add("Product ${it+1}")
         }
         return productList

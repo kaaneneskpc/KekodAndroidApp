@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "KekodAndroidApp"
 include(":app")
+include(":manuelpagination")

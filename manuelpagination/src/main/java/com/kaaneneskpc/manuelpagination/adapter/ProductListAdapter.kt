@@ -7,10 +7,11 @@ import com.kaaneneskpc.manuelpagination.ViewType
 import com.kaaneneskpc.manuelpagination.databinding.AdapterItemLoadingBinding
 import com.kaaneneskpc.manuelpagination.databinding.AdapterItemProductBinding
 
-class ProductListAdapter(private val productList: MutableList<String>) :
+class ProductListAdapter:
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var isLoadingAdded = false
+    val productList: ArrayList<String> = arrayListOf()
+    var isLoadingAdded = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             ViewType.PRODUCT_VIEW.ordinal -> {

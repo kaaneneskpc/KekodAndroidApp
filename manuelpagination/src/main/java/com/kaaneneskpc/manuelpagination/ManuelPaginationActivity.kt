@@ -2,15 +2,19 @@ package com.kaaneneskpc.manuelpagination
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.kaaneneskpc.manuelpagination.adapter.ProductListAdapter
 import com.kaaneneskpc.manuelpagination.databinding.ActivityManuelPaginationBinding
 
 class ManuelPaginationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManuelPaginationBinding
+    var currentPage: Int = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,28 +25,42 @@ class ManuelPaginationActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val productList = getProductList()
-        val productListAdapter = ProductListAdapter(productList)
+        val dummyList = getProductList(currentPage)
+        val productListAdapter = ProductListAdapter()
         binding.apply {
             rvProducts.adapter = productListAdapter
-            Handler(mainLooper).postDelayed({
-                productListAdapter.showLoading()
-            }, 5000)
-
-            Handler(mainLooper).postDelayed({
-                productListAdapter.hideLoading()
-            }, 7000)
-
-
+            productListAdapter.addItems(dummyList)
+            rvProducts.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    val layoutManager = recyclerView.layoutManager as? LinearLayoutManager
+                    val totalItemCount = layoutManager?.itemCount ?: 0
+                    val lastVisibleItem = layoutManager?.findLastVisibleItemPosition() ?: 0
+                    if (!productListAdapter.isLoadingAdded && totalItemCount <= (lastVisibleItem + 1)) {
+                        currentPage++
+                        if (currentPage > 1) {
+                            productListAdapter.showLoading()
+                        }
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            val dummyProductList = getProductList(currentPage)
+                            productListAdapter.addItems(dummyProductList)
+                            productListAdapter.hideLoading()
+                        }, 2000)
+                    }
+                }
+            })
         }
     }
 
-    private fun getProductList(): MutableList<String> {
-        val productList = mutableListOf<String>()
-        repeat(20) {
-            productList.add("Product ${it+1}")
-        }
-        return productList
+    private fun getProductList(page: Int): List<String> {
+        val start = (page - 1) * PAGE_SIZE + 1
+        val end = minOf(page * PAGE_SIZE, TOTAL_LIST_SIZE)
+        return (start..end).map { "Product $it" }
+    }
+
+    companion object {
+        private const val PAGE_SIZE = 20
+        private const val TOTAL_LIST_SIZE = 100
     }
 }
 

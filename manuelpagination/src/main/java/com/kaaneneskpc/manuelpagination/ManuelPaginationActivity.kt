@@ -38,9 +38,8 @@ class ManuelPaginationActivity : AppCompatActivity() {
                     val lastVisibleItem = layoutManager?.findLastVisibleItemPosition() ?: 0
                     if (!productListAdapter.isLoadingAdded && totalItemCount <= (lastVisibleItem + 1)) {
                         currentPage++
-                        if (currentPage > 1) {
-                            productListAdapter.showLoading()
-                        }
+                        productListAdapter.showLoading()
+
                         Handler(Looper.getMainLooper()).postDelayed({
                             val dummyProductList = getProductList(currentPage)
                             productListAdapter.addItems(dummyProductList)
